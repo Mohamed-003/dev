@@ -1,6 +1,7 @@
+
 {
-  "mongoURI": "mongodb+srv://AbishekShark:%40Abishek1996@devconnector.akgem.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+  "mongoURI": "mongodb+srv://Yusuf:githubusername.12345@devconnector.jvcaj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
   "jwtSecret": "mysecrettoken",
-  "githubClientId": "89c75dec6e9ee1039c5f",
-  "githubSecret": "fdcf36050bd52dff00822cbe9351802ad59b6312"
-}
+  "githubClientId": "69c4990d770e3aa1ec64",
+  "githubSecret": "e2f80efd35c928683d7ee969ccc137de7875bdf7"
+} 

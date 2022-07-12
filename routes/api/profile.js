@@ -7,6 +7,7 @@ const { check, validationResult } = require('express-validator');
 
 const Profile = require('../../models/Profile');
 const User = require('../../models/User');
+const Post = require('../../models/Post');
 
 // @route    Get api/profile/me
 // @desc     Get current users profile
@@ -39,7 +40,7 @@ router.post(
     auth,
     [
       check('status', 'Status is required').not().isEmpty(),
-      check('skills', 'Skills is rquired').not().isEmpty(),
+      check('skills', 'Skills is required').not().isEmpty(),
     ],
   ],
   async (req, res) => {
@@ -150,7 +151,8 @@ router.get('/user/:user_id', async (req, res) => {
 
 router.delete('/', auth, async (req, res) => {
   try {
-    // @todo- remove users posts
+    // Remove users posts
+    await Post.deleteMany({ user: req.user.id });
 
     // Remove profile
     await Profile.findOneAndRemove({ user: req.user.id });
@@ -329,7 +331,7 @@ router.get('/github/:username', (req, res) => {
         return res.status(404).json({ msg: 'No Github profile found' });
       }
 
-      res.json(JSON.parse(body))
+      res.json(JSON.parse(body));
     });
   } catch (err) {
     console.error(err.message);
